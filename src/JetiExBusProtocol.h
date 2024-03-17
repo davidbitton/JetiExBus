@@ -32,10 +32,18 @@
 #ifndef JETIEXBUS_H
 #define JETIEXBUS_H
 
+#ifdef ARDUINO
 #if ARDUINO >= 100
  #include <Arduino.h>
 #else
  #include <WProgram.h>
+#endif
+#else
+#include <stdint.h>
+#define LCR_1_STB 0x00 /* 1 stop bit */
+#define LCR_PDIS 0x00  /* parity disable */
+#define LCR_CS8 0x03   /* 8 bits data size */
+#define SERIAL_8N1      LCR_CS8 | LCR_PDIS | LCR_1_STB
 #endif
 
 #include "JetiExProtocolBuf.h"

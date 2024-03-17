@@ -32,6 +32,7 @@
 #ifndef JETIEXPROTOCOLBUF_H
 #define JETIEXPROTOCOLBUF_H
 
+#ifdef ARDUINO
 #if ARDUINO >= 100
  #include <Arduino.h>
 #else
@@ -41,6 +42,14 @@
 #if !defined(ESP32) and !defined(__SAMD21__)
   #include <new.h>
 #endif 
+#else
+#include <stdint.h>
+#include <stddef.h>
+#include <string.h>
+#include <math.h>
+// #define eprintf(...) fprintf (stderr, __VA_ARGS__)
+#define memcpy_P( ... ) memcpy(__VA_ARGS__)
+#endif
 
 // Definition of Jeti sensor (aka "Equipment")
 

@@ -33,10 +33,15 @@
 #ifndef JETIEXBUSSERIAL_H
 #define JETIEXBUSSERIAL_H
 
+#ifdef ARDUINO
 #if ARDUINO >= 100
  #include <Arduino.h>
 #else
  #include <WProgram.h>
+#endif
+#else
+#include <stdint.h>
+#include <stddef.h>
 #endif
 
 class JetiExBusSerial
